@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #ff6f61;
+  --primary-light: #ffa79f;
+  --primary-dark: #c95348;
+  --secondary: #868686;
+  --card: #f3e6e5;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  background-color: rgb(255, 239, 232);
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 100vh;
+  height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  flex-direction: column;
+}
+
+.app-container header {
+  text-align: center;
+  color: var(--primary);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.search-container {
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.search-container #search-input {
+  color: black;
+  flex: 1;
+  padding: 10px 20px;
+  border-radius: 12px;
+  outline: none;
+  border: 2px solid rgb(177, 177, 177);
+  box-shadow: 5px 5px 15px 5px rgb(177, 177, 177, 0.2);
+  transition: border 0.2s ease;
+  font-size: 20px;
+}
+
+.search-container #search-input:focus {
+  border: 2px solid var(--primary);
+}
+
+.search-container #search-btn {
+  background-color: var(--primary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 5px 5px 15px 5px rgb(177, 177, 177, 0.2);
+  transition: background-color 0.2s ease;
+  font-size: 20px;
+}
+
+.search-container #search-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+hr {
+  margin-bottom: 10px;
+  border: 0.5px solid rgb(177, 177, 177);
+}
+
+.results-container {
+  margin: 10px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+}
+
+.results-container .card {
+  background-color: var(--card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid rgb(177, 177, 177, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.results-container .card:hover {
+  transform: translateY(-5px);
+}
+
+.results-container .card img {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+}
+
+.results-container .card h2 {
+  font-size: 20px;
+  margin: 0 10px;
+  text-align: center;
+  font-weight: 1000;
+  color: var(--primary);
+  transition: color 0.2s ease;
+}
+
+.results-container .card h2:hover {
+  color: var(--primary-dark);
+}
+
+.results-container .card p {
+  background-color: var(--primary-light);
+  padding: 5px 10px;
+  border-radius: 12px;
+  color: rgb(133, 133, 133);
+  font-size: 14px;
+  margin: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.meal-details-container {
+  margin: 30px auto;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.meal-details-container.show {
+  display: block;
+}
+
+.meal-details-content {
+  text-align: center;
+}
+
+.meal-details-content img {
+  width: 100%;
+  max-height: 700px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.recipe-title {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.recipe-category {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.recipe-instruct {
+  text-align: left;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.recipe-instruct h3,
+.ingredients-list h3 {
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+}
+
+.ingredients-list ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.ingredients-list li {
+  padding: 8px;
+  background-color: var(--secondary);
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#no-meals {
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  display: none;
+}
+
+#no-meals.show {
+  display: block;
+}
+
+#no-meals p {
+  font-weight: 600;
+}
